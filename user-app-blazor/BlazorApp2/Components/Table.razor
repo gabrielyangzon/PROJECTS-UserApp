@@ -1,0 +1,29 @@
+﻿<h3>Table</h3>
+
+
+ <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in data)
+            {
+                <tr>
+                   
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td><a href="/user/@user.Id">Edit</a></td>
+                    <td><a>Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
