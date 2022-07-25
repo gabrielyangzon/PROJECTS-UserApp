@@ -78,6 +78,7 @@ namespace BlazorApp2.Pages.User
                     Id = (Guid)User.Id,
                     Name = User.Name,
                     Email = User.Email,
+                    Phone = User.Phone,
                 };
 
                 if (User.Id.ToString() != "0")
