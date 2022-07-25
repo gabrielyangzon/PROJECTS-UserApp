@@ -9,6 +9,12 @@ namespace BlazorApp2.Pages.User
     {
 
         [Inject]
+        public IJSRuntime IJSRuntime
+        {
+            get; set;
+        }
+
+        [Inject]
         public IUserHttpRepository UserHttpRepository
         {
             get; set;
@@ -38,23 +44,33 @@ namespace BlazorApp2.Pages.User
         {
             try
             {
-               
+                if (id == "0")
+                {
+                    User = new UserModel();
+                }
+                else
+                {
 
-                User = await UserHttpRepository.GetUserById(id);
+                    User = await UserHttpRepository.GetUserById(id);
+
+                }
             }
-            catch (Exception e) { }
+            catch (Exception e) {
+            
+            
+            
+            }
 
 
 
 
         }
 
-
-        protected async Task SaveUser()
+        public async Task SaveUser()
         {
             bool isSaved = false;
-
-            if (await JsRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to save?"))
+            bool save = await IJSRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to save?");
+            if (save)
             {
 
                 UserModel modifiedUser = new UserModel
@@ -64,21 +80,31 @@ namespace BlazorApp2.Pages.User
                     Email = User.Email,
                 };
 
+                if (User.Id.ToString() != "0")
+                {
                     isSaved = await UserHttpRepository.EditUser(modifiedUser);
+                }
+                else
+                {
+                    isSaved = await UserHttpRepository.AddUser(modifiedUser);
+                }
+                   
             
 
                     if (isSaved)
                     {
-                        await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+                        await IJSRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
                         navigationManager.NavigateTo("users");
                     }
                     else
                     {
-                        await JsRuntime.InvokeVoidAsync("alert", "Data not saved!");
+                        await IJSRuntime.InvokeVoidAsync("alert", "Data not saved!");
                     }
 
                 
              }
+
+            return;
         }
     }
 }

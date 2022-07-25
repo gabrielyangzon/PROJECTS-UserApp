@@ -1,30 +1,32 @@
 ﻿@page "/user/{id}"
-@inject IJSRuntime JsRuntime 
-<button class="btn btn-secondary mb-2"> Back</button>
 
-<h3>User</h3>
+<a href="users" class="btn btn-secondary mb-2"> Back</a>
+
+<h3>User details</h3>
 
 
-
-@if (@User != null)
+@if(User != null)
 {
-    <form>
+   
         <input type="hidden" @bind=@User.Id />
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input @bind=@User.Email  class="form-control" id="email">       
+            <input @bind=@User.Email  class="form-control" id="email" required>       
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input @bind=@User.Name type="text" class="form-control" id="name">
+            <input @bind=@User.Name type="text" class="form-control" id="name" required>
         </div>
 
-        <button  @onclick="@SaveUser"   class="btn btn-primary">Save</button>
+       
 
-    </form>
+    
+
+
+
+ <button  @onclick="SaveUser" class="btn btn-primary">Save</button>
+
 }
-
-
 
 
 

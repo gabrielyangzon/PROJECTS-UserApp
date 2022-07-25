@@ -6,11 +6,22 @@
 <PageTitle>Users</PageTitle>
 
 <h1>Users</h1>
+<a class="btn btn-outline-primary " href="/user/0">Add user</a>
 
-@if(Users != null)
+@if(!isLoading)
 {
    
-<Table data="Users"></Table> 
+<Table data="Users" onDeleteClicked="DeleteUser"></Table> 
+}
+
+else
+{
+    <div class="text-center">
+       <div class="spinner-border" role="status">
+  
+         </div>
+       <span class="sr-only">Loading...</span>
+   </div>
 }
 
 

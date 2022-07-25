@@ -97,24 +97,23 @@ namespace BlazorApp2.HttpRepository
         public async Task<bool> DeleteUser(string id)
         {
 
-            //HttpContent httpContent = new StringContent(JsonSerializer.Serialize(user), Encoding.UTF8, "application/json");
+          
+            try
+            {
 
-            //try
-            //{
+                var response = await _client.DeleteAsync("User/DeleteUser?id=" +id);
 
-            //    var response = await _client.PutAsync("User/EditUser", httpContent);
+                var content = await response.Content.ReadAsStringAsync();
 
-            //    var content = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
 
-            //    if (!response.IsSuccessStatusCode)
-            //    {
-            //        return false;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
+            }
             return true;
         }
     }

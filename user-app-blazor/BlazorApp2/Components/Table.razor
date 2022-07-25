@@ -1,4 +1,4 @@
-﻿<h3>Table</h3>
+﻿
 
 
  <table class="table">
@@ -19,11 +19,24 @@
                    
                     <td>@user.Name</td>
                     <td>@user.Email</td>
-                    <td><a href="/user/@user.Id">Edit</a></td>
-                    <td><a>Delete</a></td>
+                    <td><a class="btn btn-info text-white" href="/user/@user.Id">Edit</a></td>
+                    <td><button @onclick="@(() => onDeleteClickHandler(user.Id.ToString()))" class="btn btn-danger">Delete</button></td>
                 </tr>
             }
         </tbody>
     </table>
+
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> onDeleteClicked {get;set;}
+
+
+    protected async Task onDeleteClickHandler(string userId)
+    {
+        await onDeleteClicked.InvokeAsync(userId);
+    }
+ }
 
 
