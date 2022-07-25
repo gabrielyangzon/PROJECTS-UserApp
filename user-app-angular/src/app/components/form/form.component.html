@@ -1,0 +1,64 @@
+<div>
+<mat-card>
+<mat-card-title>Add User</mat-card-title>
+    
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile 
+            >
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. Pizza" >
+            </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Ex. Pizza" >
+            </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. Pizza" >
+        </mat-form-field>
+   </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. Pizza" >
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Ex. Pizza" >
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Website</mat-label>
+            <input matInput placeholder="Ex. Pizza" >
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<!-- <div *ngIf="this.formGroup !== null" *ngFor="let controls of formGroup.controls">
+    
+</div> -->
+
+
+<mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onAddUserClickHandler()">Save</button>
+   
+</mat-card-actions>
+
+</mat-card>
+
+
+</div>

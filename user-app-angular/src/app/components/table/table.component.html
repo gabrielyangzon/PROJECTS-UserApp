@@ -1,0 +1,75 @@
+<button 
+    mat-fab color="primary" 
+    aria-label="add" 
+    routerLink="/details"  
+    matTooltip="Add user">
+    <mat-icon>add</mat-icon>
+</button>
+
+
+<h1 class="m-2">User List</h1>
+<table 
+    [width]="'100%'"
+    mat-table 
+    #myTable
+    [dataSource]="this.tableData" 
+    class="mat-elevation-z8 mt-4">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"> 
+           
+        <a routerLink="details" [state]="{ user : element}">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></a>
+        
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+    
+            <a routerLink="details" [state]="{ user : element}">
+                <mat-icon color="warn">delete</mat-icon>
+            </a>
+    
+        </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> username</th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="email" >
+        <th mat-header-cell  *matHeaderCellDef> email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="website">
+        <th mat-header-cell *matHeaderCellDef> Website</th>
+        <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+    </ng-container> -->
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
