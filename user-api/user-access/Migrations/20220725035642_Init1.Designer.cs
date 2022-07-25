@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using user_access;
 
@@ -11,9 +12,10 @@ using user_access;
 namespace user_access.Migrations
 {
     [DbContext(typeof(USER_CONTEXT))]
-    partial class USER_CONTEXTModelSnapshot : ModelSnapshot
+    [Migration("20220725035642_Init1")]
+    partial class Init1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
