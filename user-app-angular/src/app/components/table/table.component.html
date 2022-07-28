@@ -21,7 +21,7 @@
         <td mat-cell *matCellDef="let element"> 
            
         <a routerLink="details" [state]="{ user : element}">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></a>
+        <mat-icon >edit</mat-icon></a>
         
         </td>
     </ng-container>
@@ -30,7 +30,7 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
     
-            <a routerLink="details" [state]="{ user : element}">
+            <a (click)="deleteButtonClickHandler(element.id)">
                 <mat-icon color="warn">delete</mat-icon>
             </a>
     

@@ -21,7 +21,7 @@ export class UserService {
 
   }
 
-  public  saveUser( user : UserModel) : Observable<boolean> {
+  public saveUser( user : UserModel) : Observable<boolean> {
 
    
     if(user.id == "0"){
@@ -45,6 +45,18 @@ export class UserService {
         catchError(this.handleError("saveUser" , false )) )
     
     }
+
+  }
+
+  deleteUser(id : string) : Observable<boolean>{
+console.log(id)
+      return this.http.delete(this.API_URL + "/DeleteUser?id=" + id ,{responseType: 'text' , observe: 'response'}).pipe(
+         map(res => {
+        
+          return res.status === 200 ? true : false
+          
+        }),
+        catchError(this.handleError("deleteUser" , false)))
 
   }
 

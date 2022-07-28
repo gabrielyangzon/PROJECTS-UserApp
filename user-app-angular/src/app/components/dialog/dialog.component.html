@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" [color]="color">{{icon}}</mat-icon>
+<div mat-dialog-content>{{_message}}</div>
+<div mat-dialog-actions>
+
+     <button *ngIf= "this._type === 'confirm'" mat-button 
+     [mat-dialog-close]="this.param">Yes</button> 
+    <button mat-button mat-dialog-close>Close</button>
+</div>

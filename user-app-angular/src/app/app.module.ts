@@ -13,7 +13,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { Routes, RouterModule } from '@angular/router'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule  } from '@angular/material/dialog';
+
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -23,6 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableComponent } from './components/table/table.component';
 import { FormComponent } from './components/form/form.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const routes : Routes = [
   {path : '' , component: IndexComponent},
@@ -37,7 +40,8 @@ const routes : Routes = [
     NavbarComponent,
     TableComponent,
     FormComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,8 @@ const routes : Routes = [
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

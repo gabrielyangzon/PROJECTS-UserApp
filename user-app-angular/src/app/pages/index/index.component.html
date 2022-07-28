@@ -1,5 +1,7 @@
 
 <!-- <app-form [data]="UserType" (onAddUserClick)="addUser()" ></app-form> -->
   
-<app-table *ngIf="this.Users.length !== 0" [data]="Users"></app-table>
+
+
+<app-table *ngIf="this.Users.length !== 0" [data]="Users" (delete)="deleteUser($event)" ></app-table>
    
